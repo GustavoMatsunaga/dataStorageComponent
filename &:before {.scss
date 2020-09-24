@@ -1,0 +1,12 @@
+&:before {
+    content: '';
+    border: 1rem solid transparent;
+    border-top-color: $very-dark-grayish-blue;
+    border-bottom: 0;
+    position: absolute;
+    bottom: 2rem;
+
+    @media(max-width: $break-mobile) {
+        display: none;
+    }
+}

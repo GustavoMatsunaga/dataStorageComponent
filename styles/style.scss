@@ -1,0 +1,180 @@
+//*********** VARIABLES ***********// 
+// Break points
+$break-mobile: 950px;
+$break-desktop: 1440px;
+
+$border-pattern : 0.6rem;
+
+// Color Primary
+$linear-gradient-color: (hsl(6, 100%, 80%),hsl(335, 100%, 65%));
+
+// Color Neutral
+$pale-blue: hsl(243, 100%, 93%);
+$grayish-blue: hsl(229, 7%, 55%);
+$dark-blue: hsl(228, 56%, 26%);
+$very-dark-blue: hsl(229, 57%, 11%);
+
+// Typography
+:root {
+    font-size: 14px;
+}
+
+// Font Style
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+@import 'reset';
+
+//*********** MAIN ***********// 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
+
+body {
+    min-width: 100vw;
+    min-height: 100vh;
+    background-image: url("../images/bg-desktop.png");
+    background-color: $very-dark-blue;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 90vw;
+
+    @media(max-width: $break-mobile) {
+        flex-direction: column;
+        row-gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.box {
+    background-color: $dark-blue;
+    padding: 3rem 9.6rem 3rem 3rem;
+    border-radius: $border-pattern;
+    border-top-right-radius: 8rem;
+    margin-right: 2.8rem;
+
+    @media(max-width: $break-mobile) {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    &-images {
+        margin-top: 2.3rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &-container {
+            width: 100%;
+            padding: 1rem; 
+            background-color: $very-dark-blue;
+            margin-right: 1rem;
+            border-radius: 1rem;
+        }
+
+        img {
+            height: 1.78rem;
+        }
+    }
+}
+
+.data {
+    background-color: $dark-blue;
+    padding: 3rem;
+    border-radius: 0.4rem;
+    width: 540px;
+    position: relative;
+
+    @media(max-width: $break-mobile) {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    p {
+        font-size: 1rem;
+        color: $pale-blue;
+
+        strong {
+            font-weight: bold;
+        }
+    }
+
+    input[type="range"] {
+        margin: 1.42rem 0 0.85rem 0; 
+        -webkit-appearance: none;
+        appearance: none;
+        height: 1rem;
+        width: 100%;
+        outline: none;
+        border-radius: 1rem;
+        -webkit-transition: 0.2s;
+        transition: opacity 0.2s;
+        background: linear-gradient(90deg, hsl(6, 100%, 80%) 0%, hsl(335, 100%, 65%) 81.5%, hsl(229, 57%, 11%) 81.5%, hsl(229, 57%, 11%) 100%);
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none; 
+            appearance: none;
+            width: 0.76rem; 
+            height: 0.76rem; 
+            border-radius: 50%;
+            background: white;
+            box-shadow:  0rem 0 0 0.13rem hsl(335, 100%, 65%); 
+            cursor: pointer; 
+        } 
+    }
+
+    &-range {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &-left {
+        position: absolute;
+        top: -2rem;
+        right: 8%;
+        background-color: white;
+        padding: 1rem 2rem;
+        border-radius: $border-pattern;
+        color:$grayish-blue !important;
+
+        @media(max-width: $break-mobile) {
+            top: 11rem;
+            right: 22%;
+        }
+
+        
+        &-number {
+            font-size: 2.28rem;
+            font-weight: bold;
+            color: black;
+        }
+
+        &:before {
+            content: '';
+            top: 3.6rem;
+            right: 0;
+            border: 2rem solid transparent;
+            border-top-color: white;
+            border-bottom: 0;
+            border-right: 0;
+            position: absolute;
+
+            @media(max-width: $break-mobile) {
+                display: none;
+            }
+        }
+    }
+}
